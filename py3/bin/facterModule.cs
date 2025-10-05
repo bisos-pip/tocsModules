@@ -191,9 +191,9 @@ class examples(cs.Cmnd):
             loadAsCs_csu.examples_seed().pyCmnd(
                 pyKwArgs={'upload': "./facterModuleSample.py"}
             )
-            facterModule_csu.examples_seed().pyCmnd(
-                pyKwArgs={'upload': "./facterModuleSample.py"}
-            )
+            # facterModule_csu.examples_seed().pyCmnd(
+            #     pyKwArgs={'upload': "./facterModuleSample.py"}
+            # )
 
             examplesFuncsList = cmndsSeed.cmndsSeedInfo.examplesFuncsList
             if examplesFuncsList is not None:

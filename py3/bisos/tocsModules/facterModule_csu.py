@@ -214,7 +214,10 @@ echo 127.0.0.1 | facterModule.cs --upload="/bisos/git/auth/bxRepos/bisos-pip/toc
         uploadPathAbs = str(pathlib.Path(uploadPath).expanduser().resolve())
         uploadPars = od([('upload', uploadPathAbs)])
 
-        targetPathAbs = str(pathlib.Path("~/targets/examples.tgt").expanduser().resolve())
+        oneBaseDir = "/bisos/git/bxRepos/bxObjects/bro_tocsModules/facter/samples/"
+        oneTargetFile = oneBaseDir + "targets/examples.tgt"
+
+        targetPathAbs = str(pathlib.Path(oneTargetFile).expanduser().resolve())
         targetFilePars = od([('upload', uploadPathAbs),('targetFile', targetPathAbs) ])
 
         cs.examples.menuChapter('= Facter Module  Commands=')

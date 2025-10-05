@@ -83,105 +83,9 @@ import collections
 
 import atexit
 
+from bisos.b import cmndsSeed
+
 seedCSMU = 'facterModule.cs'
-
-####+BEGIN: bx:cs:py3:section :title "Public Classes"
-""" #+begin_org
-*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  /Section/    [[elisp:(outline-show-subtree+toggle)][||]] *Public Classes*  [[elisp:(org-cycle)][| ]]
-#+end_org """
-####+END:
-
-####+BEGIN: b:py3:class/decl :className "ThisSeedInfo" :superClass "object" :comment "Abstraction of the seed Interface" :classType "basic"
-""" #+begin_org
-*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  Cls-basic  [[elisp:(outline-show-subtree+toggle)][||]] /ThisSeedInfo/  superClass=object =Abstraction of the seed Interface=  [[elisp:(org-cycle)][| ]]
-#+end_org """
-class ThisSeedInfo(object):
-####+END:
-    """
-** Abstraction of
-"""
-    _instance = None
-
-    # Singleton using New
-    def __new__(cls):
-        if cls._instance is None:
-            # print('Creating the object')
-            cls._instance = super( __class__, cls).__new__(cls)
-            # Put any initialization here.
-        return cls._instance
-
-    def __init__(
-            self,
-            seedType: str | None =None,
-            examplesHook: typing.Callable | None =None,
-    ):
-        self._seedType = seedType
-        self._examplesHook = examplesHook
-
-    @property
-    def seedType(self) -> str | None:
-        return self._seedType
-
-    @seedType.setter
-    def seedType(self, value: str | None,):
-        self._seedType = value
-
-    @property
-    def examplesHook(self) -> typing.Callable | None:
-        return self._examplesHook
-
-    @examplesHook.setter
-    def examplesHook(self, value: typing.Callable | None,):
-        self._examplesHook = value
-
-
-# A Singleton
-thisSeedInfo = ThisSeedInfo()
-
-####+BEGIN: bx:cs:py3:section :title "Public Functions"
-""" #+begin_org
-*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  /Section/    [[elisp:(outline-show-subtree+toggle)][||]] *Public Functions*  [[elisp:(org-cycle)][| ]]
-#+end_org """
-####+END:
-
-####+BEGIN: b:py3:cs:func/typing :funcName "setup" :funcType "extTyped" :deco "track"
-""" #+begin_org
-*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  F-T-extTyped [[elisp:(outline-show-subtree+toggle)][||]] /setup/  deco=track  [[elisp:(org-cycle)][| ]]
-#+end_org """
-@cs.track(fnLoc=True, fnEntry=True, fnExit=True)
-def setup(
-####+END:
-        seedType: str | None = None,
-        examplesHook: typing.Callable | None = None,
-):
-    """ #+begin_org
-** [[elisp:(org-cycle)][| *DocStr | ]
-    #+end_org """
-    thisSeedInfo.seedType = seedType
-    thisSeedInfo.examplesHook  = examplesHook
-
-
-####+BEGIN: b:py3:cs:func/typing :funcName "plantWithWhich" :funcType "extTyped" :comment "expects seedGraphviz.cs" :deco "track"
-""" #+begin_org
-*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  F-T-extTyped [[elisp:(outline-show-subtree+toggle)][||]] /plantWithWhich/  expects seedSbom.cs deco=track  [[elisp:(org-cycle)][| ]]
-#+end_org """
-@cs.track(fnLoc=True, fnEntry=True, fnExit=True)
-def plantWithWhich(
-####+END:
-        asExpected: str,
-) -> None:
-    """ #+begin_org
-** [[elisp:(org-cycle)][| *DocStr | ] shim over b.importFile.plantWithWhich
-    #+end_org """
-
-    expected = seedCSMU
-
-    if asExpected != expected:
-        b_io.pr(f"plantWithWhich:: Expected {expected} Got: {asExpected}")
-        return
-
-    b.importFile.plantWithWhich(expected)
-
 
 ####+BEGIN: b:py3:cs:func/typing :funcName "atexit_plantWithWhich" :funcType "extTyped" :comment "expects seedGraphviz.cs" :deco "atexit.register"
 """ #+begin_org
@@ -196,7 +100,7 @@ def atexit_plantWithWhich(
 ** [[elisp:(org-cycle)][| *DocStr | ] shim over b.importFile.plantWithWhich
     #+end_org """
 
-    plantWithWhich(asExpected)
+    cmndsSeed.plantWithWhich(asExpected)
 
 
 ####+BEGIN: b:py3:cs:framework/endOfFile :basedOn "classification"
