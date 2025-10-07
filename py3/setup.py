@@ -55,11 +55,8 @@ def pkgVersion():
 requires = [
 "bisos",
 "bisos.b",
-"bisos.banna",
-"bisos.basics",
 "bisos.common",
 "bisos.csPlayer",
-"bisos.facter",
 "bisos.loadAsCs",
 "setuptools==75.8.0",
 ]

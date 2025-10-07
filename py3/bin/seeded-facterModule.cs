@@ -4,6 +4,11 @@ from bisos.b import cs
 import collections
 
 from bisos.tocsModules  import facterModule_seed
+from bisos.b import cmndsSeed
+
+cmndsSeed.setup(
+    seedType="common",
+)
 
 def examples_csu() -> None:
 
@@ -21,11 +26,13 @@ def examples_csu() -> None:
     targetFilePars = od([('upload', oneModuleFile), ('targetFile', oneTargetFile) ])
     modulePars = od([('upload', oneModuleFile), ('targetFile', oneTargetFile), ('facterParName', 999) ])
 
+    csName = "facterModule.cs"
+
     cs.examples.menuChapter('= Sample TOCS Facter Module  Commands=')
 
-    cmnd('targetRun', pars=uploadPars , args="""localhost""")
+    cmnd('targetRun', csName=csName, pars=uploadPars , args="""localhost""")
 
-    cmnd('targetRun', pars=uploadPars , args="""localhost""",
+    cmnd('targetRun', csName=csName, pars=uploadPars , args="""localhost""",
          wrapper=f"echo 127.0.0.1 |",
          )
 
