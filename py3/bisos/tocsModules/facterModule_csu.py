@@ -99,6 +99,8 @@ import pathlib
 from bisos.loadAsCs import loadAsCs_csu
 from bisos.loadAsCs import abstractLoader
 
+from bisos.b import cmndsSeed
+
 ####+BEGIN: b:py3:cs:orgItem/basic :type "=Executes=  "  :title "CSU-Lib Executions" :comment "-- cs.invOutcomeReportControl"
 """ #+begin_org
 *  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  =Executes=   [[elisp:(outline-show-subtree+toggle)][||]] CSU-Lib Executions -- cs.invOutcomeReportControl  [[elisp:(org-cycle)][| ]]
@@ -141,6 +143,24 @@ def commonParamsSpecify(
         parChoices=[],
         argparseShortOpt=None,
         argparseLongOpt='--targetsNu',
+    )
+    csParams.parDictAdd(
+        parName='cluster',
+        parDescription=".",
+        parDataType=None,
+        parDefault=None,
+        parChoices=[],
+        argparseShortOpt=None,
+        argparseLongOpt='--cluster',
+    )
+    csParams.parDictAdd(
+        parName='clustersList',
+        parDescription=".",
+        parDataType=None,
+        parDefault=None,
+        parChoices=[],
+        argparseShortOpt=None,
+        argparseLongOpt='--clustersList',
     )
 
 
@@ -203,6 +223,12 @@ echo 127.0.0.1 | facterModule.cs --upload="/bisos/git/auth/bxRepos/bisos-pip/toc
         od = collections.OrderedDict
         cmnd = cs.examples.cmndEnter
         literal = cs.examples.execInsert
+
+        #  -v 1 --callTrackings monitor+ --callTrackings invoke+
+        pars_debug_full = od([('verbosity', "1"), ('callTrackings', "monitor+"), ('callTrackings', "invoke+"), ])
+
+        # cmnd('targetRun', csName=csName, pars=(pars_debug_full |pars_upload), comment=f"""# DEBUG Small Batch""",)
+
 
         uploadPath = "./genericPyModule.py"
         if pyKwArgs:
@@ -293,11 +319,18 @@ echo 127.0.0.1 | facterModule.cs --upload="/bisos/git/auth/bxRepos/bisos-pip/toc
         literal = cs.examples.execInsert
 
         uploadPath = "./genericPyModule.py"
+
         if pyKwArgs:
             uploadPath =  pyKwArgs['upload']
         else:
             return failed(cmndOutcome)
 
+        kwSeedInfo = cmndsSeed.cmndsSeedInfo.kwSeedInfo
+        print(f"4444 kwSeedInfo={kwSeedInfo}")
+        if kwSeedInfo:
+            if kwSeedInfo.get('uploadPath'):
+                uploadPath = kwSeedInfo['uploadPath']
+        
         # Use an absolute path for upload to avoid relative-path surprises
         uploadPathAbs = str(pathlib.Path(uploadPath).expanduser().resolve())
         uploadPars = od([('upload', uploadPathAbs)])

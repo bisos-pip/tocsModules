@@ -3,11 +3,12 @@
 from bisos.b import cs
 import collections
 
-from bisos.tocsModules  import facterModule_seed
+from bisos.tocsModules import facterModule_seed
 from bisos.b import cmndsSeed
 
 cmndsSeed.setup(
     seedType="common",
+    kwSeedInfo={'uploadPath': "./ZZfacterModuleSample.py"}
 )
 
 def examples_csu() -> None:
@@ -15,6 +16,13 @@ def examples_csu() -> None:
     od = collections.OrderedDict
     cmnd = cs.examples.cmndEnter
     literal = cs.examples.execInsert
+
+    csName = "facterModule.cs"
+
+    #  -v 1 --callTrackings monitor+ --callTrackings invoke+
+    pars_debug_full = od([('verbosity', "1"), ('callTrackings', "monitor+"), ('callTrackings', "invoke+"), ])
+
+    # cmnd('targetRun', csName=csName, pars=(pars_debug_full | pars_upload), comment=f"""# DEBUG Small Batch""",)
 
     cs.examples.menuChapter(f'*Seed Extensions*')
 
