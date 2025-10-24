@@ -101,13 +101,13 @@ if b.cs.G.plantOfThisSeed is not None:
   (list
    "bisos.b.cs.ro"
    "bisos.csPlayer.bleep"
-   "bisos.loadAsCs.loadAsCs_csu"
+   "bisos.uploadAsCs.uploadAsCs_csu"
    "bisos.tocsModules.facterModule_csu"
    "plantedCsu"
  ))
 #+END_SRC
 #+RESULTS:
-| bisos.b.cs.ro | bisos.csPlayer.bleep | bisos.loadAsCs.loadAsCs_csu | bisos.tocsModules.facterModule_csu | plantedCsu |
+| bisos.b.cs.ro | bisos.csPlayer.bleep | bisos.uploadAsCs.uploadAsCs_csu | bisos.tocsModules.facterModule_csu | plantedCsu |
 #+end_org """
 
 ####+BEGIN: b:py3:cs:framework/csuListProc :pyImports t :csuImports t :csuParams t :csmuParams nil
@@ -117,10 +117,10 @@ if b.cs.G.plantOfThisSeed is not None:
 
 from bisos.b.cs import ro
 from bisos.csPlayer import bleep
-from bisos.loadAsCs import loadAsCs_csu
+from bisos.uploadAsCs import uploadAsCs_csu
 from bisos.tocsModules import facterModule_csu
 
-csuList = [ 'bisos.b.cs.ro', 'bisos.csPlayer.bleep', 'bisos.loadAsCs.loadAsCs_csu', 'bisos.tocsModules.facterModule_csu', 'plantedCsu', ]
+csuList = [ 'bisos.b.cs.ro', 'bisos.csPlayer.bleep', 'bisos.uploadAsCs.uploadAsCs_csu', 'bisos.tocsModules.facterModule_csu', 'plantedCsu', ]
 
 if b.cs.G.plantOfThisSeed is None:
     csuList.remove('plantedCsu')
@@ -182,14 +182,14 @@ class examples(cs.Cmnd):
         cs.examples.commonBrief()
 
         if b.cs.G.plantOfThisSeed is None:
-            loadAsCs_csu.examples_csu().pyCmnd(
+            uploadAsCs_csu.examples_csu().pyCmnd(
                 pyKwArgs={'upload': "./facterModuleSample.py"}
             )
             facterModule_csu.examples_csu().pyCmnd(
                 pyKwArgs={'upload': "./facterModuleSample.py"}
             )
         else:
-            loadAsCs_csu.examples_seed().pyCmnd(
+            uploadAsCs_csu.examples_seed().pyCmnd(
                 pyKwArgs={'upload': "./facterModuleSample.py"}
             )
             facterModule_csu.examples_seed().pyCmnd(

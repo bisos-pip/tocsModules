@@ -99,7 +99,7 @@ import logging
 
 log = logging.getLogger(__name__)
 
-from bisos.loadAsCs import abstractLoader
+from bisos.uploadAsCs import abstractLoader
 import types
 
 import sys

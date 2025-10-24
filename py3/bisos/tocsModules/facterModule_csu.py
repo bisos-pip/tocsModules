@@ -96,8 +96,8 @@ import collections
 
 import pathlib
 
-from bisos.loadAsCs import loadAsCs_csu
-from bisos.loadAsCs import abstractLoader
+from bisos.uploadAsCs import uploadAsCs_csu
+from bisos.uploadAsCs import abstractLoader
 
 from bisos.b import cmndsSeed
 

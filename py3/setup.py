@@ -43,7 +43,7 @@ def longDescription():
 # b:py3:pypi:setup/version Arguments  :forSys t :forPyPi t :constant "666"
 ####+BEGIN: b:py3:pypi:setup/version :comment "Auto Detected"
 
-# ./pypiUploadVer DID NOT exist -- forPypiVersion=0.11 -- forLocalVersion=0.1 -- constant=NA
+# ./pypiUploadVer DID NOT exist -- forPypiVersion=0.12 -- forLocalVersion=0.1 -- constant=NA
 def pkgVersion():
         return '0.1'
 
@@ -57,7 +57,7 @@ requires = [
 "bisos.b",
 "bisos.common",
 "bisos.csPlayer",
-"bisos.loadAsCs",
+"bisos.uploadAsCs",
 "setuptools==75.8.0",
 ]
 ####+END:
@@ -67,7 +67,6 @@ requires = [
 
 scripts = [
 'bin/facterModule.cs',
-'bin/facterModule.k1',
 'bin/facterModuleSample.py',
 'bin/planted-facterModule.cs',
 ]
