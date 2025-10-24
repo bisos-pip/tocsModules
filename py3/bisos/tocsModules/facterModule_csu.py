@@ -127,13 +127,13 @@ def commonParamsSpecify(
         csParams: cs.param.CmndParamDict,
 ) -> None:
     csParams.parDictAdd(
-        parName='targetFile',
+        parName='targetsFile',
         parDescription=".",
         parDataType=None,
         parDefault=None,
         parChoices=[],
         argparseShortOpt=None,
-        argparseLongOpt='--targetFile',
+        argparseLongOpt='--targetsFile',
     )
     csParams.parDictAdd(
         parName='targetsNu',
@@ -161,6 +161,15 @@ def commonParamsSpecify(
         parChoices=[],
         argparseShortOpt=None,
         argparseLongOpt='--clustersList',
+    )
+    csParams.parDictAdd(
+        parName='runDisposition',
+        parDescription=".",
+        parDataType=None,
+        parDefault="parallel",
+        parChoices=["parallel", "sequential"],
+        argparseShortOpt=None,
+        argparseLongOpt='--runDisposition',
     )
 
 
