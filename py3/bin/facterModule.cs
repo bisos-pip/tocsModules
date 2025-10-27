@@ -84,15 +84,20 @@ from bisos.common import csParam
 import collections
 ####+END:
 
+import pathlib
+
 import typing
 import sys
 import os
 
-
+####+BEGIN: b:py3:cs:framework/csmuSeeded :comment "Import plantedCsu"
+""" #+begin_org
+*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  CsFrmWrk   [[elisp:(outline-show-subtree+toggle)][||]] =Seeded CSMU= Import plantedCsu
+#+end_org """
+from bisos.b import cmndsSeed
 if b.cs.G.plantOfThisSeed is not None:
-    from bisos.b import cmndsSeed
     b.importFileAs('plantedCsu', b.cs.G.plantOfThisSeed, __file__, __name__)
-
+####+END:
 
 """ #+begin_org
 *  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  CsFrmWrk   [[elisp:(outline-show-subtree+toggle)][||]] ~csuList emacs-list Specifications~  [[elisp:(blee:org:code-block/above-run)][ /Eval Below/ ]] [[elisp:(org-cycle)][| ]]
@@ -142,8 +147,13 @@ def g_extraParams():
 
 # cs.invOutcomeReportControl(cmnd=True, ro=True)
 
-from bisos.tocsModules import loader_facter
+####+BEGIN: b:py3:cs:framework/uploadLoader :comment "Select Upload Loader"
+""" #+begin_org
+*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  CsFrmWrk   [[elisp:(outline-show-subtree+toggle)][||]] =Upload Loader= Setup Loader
+#+end_org """
+####+END:
 
+from bisos.tocsModules import loader_facter
 loader_facter.loaderType_facter().pyCmnd()
 
 
@@ -181,32 +191,29 @@ class examples(cs.Cmnd):
         cs.examples.myName(cs.G.icmMyName(), cs.G.icmMyFullName())
         cs.examples.commonBrief()
 
+        uploadPathRel = "./facterModuleSample.py"
+        uploadPathAbs = str(pathlib.Path(uploadPathRel).expanduser().resolve())
+
         if b.cs.G.plantOfThisSeed is None:
             uploadAsCs_csu.examples_csu().pyCmnd(
-                pyKwArgs={'upload': "./facterModuleSample.py"}
+                pyKwArgs={'uploadPath': uploadPathAbs}
             )
             facterModule_csu.examples_csu().pyCmnd(
-                pyKwArgs={'upload': "./facterModuleSample.py"}
+                pyKwArgs={'uploadPath': uploadPathAbs}
             )
         else:
             uploadAsCs_csu.examples_seed().pyCmnd(
-                pyKwArgs={'upload': "./facterModuleSample.py"}
+                pyKwArgs={'uploadPath': uploadPathAbs}
             )
             facterModule_csu.examples_seed().pyCmnd(
-                 pyKwArgs={'upload': "./facterModuleSample.py"}
+                 pyKwArgs={'uploadPath': uploadPathAbs}
             )
 
-            examplesFuncsList = cmndsSeed.cmndsSeedInfo.examplesFuncsList
-            if examplesFuncsList is not None:
-                for each in examplesFuncsList:
-                    each()
-            else:
-                examplesCsu = cmndsSeed.examplesOfPlantedCsu()
-                if examplesCsu is not None:
-                    examplesCsu()
+            cmndsSeed.plantedCsuExamplesRun()
 
 
         return(cmndOutcome)
+
 
 ####+BEGIN: blee:bxPanel:foldingSection :outLevel 0 :sep nil :title "Main" :anchor ""  :extraInfo "Framework DBlock"
 """ #+begin_org

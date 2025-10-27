@@ -8,7 +8,7 @@ from bisos.b import cmndsSeed
 
 cmndsSeed.setup(
     seedType="common",
-    kwSeedInfo={'uploadPath': "./ZZfacterModuleSample.py"}
+    kwSeedInfo={'uploadPath': "./facterModuleSample.py"}
 )
 
 def examples_csu() -> None:

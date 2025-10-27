@@ -30,8 +30,8 @@
 *   *Siblings*   :: [[elisp:(blee:bnsm:panel-goto "/bisos/panels/bisos-core/bisos-pip/bisos.b/_nodeBase_")][ = /<bisos.b>/ = ]] *|* [[elisp:(blee:bnsm:panel-goto "/bisos/panels/bisos-core/bisos-pip/bisos.basics/_nodeBase_")][ = /<bisos.basics>/ = ]] *|* [[elisp:(blee:bnsm:panel-goto "/bisos/panels/bisos-core/bisos-pip/bisos.binsprep/_nodeBase_")][ = /<bisos.binsprep>/ = ]] *|* [[elisp:(blee:bnsm:panel-goto "/bisos/panels/bisos-core/bisos-pip/bisos.bpo/_nodeBase_")][ = /<bisos.bpo>/ = ]] *|* [[elisp:(blee:bnsm:panel-goto "/bisos/panels/bisos-core/bisos-pip/bisos.bxoGitlab/_nodeBase_")][ = /<bisos.bxoGitlab>/ = ]] *|*
 *   *Siblings*   :: [[elisp:(blee:bnsm:panel-goto "/bisos/panels/bisos-core/bisos-pip/bisos.capability/_nodeBase_")][ = /<bisos.capability>/ = ]] *|* [[elisp:(blee:bnsm:panel-goto "/bisos/panels/bisos-core/bisos-pip/bisos.cmdb/_nodeBase_")][ = /<bisos.cmdb>/ = ]] *|* [[elisp:(blee:bnsm:panel-goto "/bisos/panels/bisos-core/bisos-pip/bisos.common/_nodeBase_")][ = /<bisos.common>/ = ]] *|* [[elisp:(blee:bnsm:panel-goto "/bisos/panels/bisos-core/bisos-pip/bisos.crypt/_nodeBase_")][ = /<bisos.crypt>/ = ]] *|* [[elisp:(blee:bnsm:panel-goto "/bisos/panels/bisos-core/bisos-pip/bisos.debian/_nodeBase_")][ = /<bisos.debian>/ = ]] *|*
 *   *Siblings*   :: [[elisp:(blee:bnsm:panel-goto "/bisos/panels/bisos-core/bisos-pip/bisos.dockerProc/_nodeBase_")][ = /<bisos.dockerProc>/ = ]] *|* [[elisp:(blee:bnsm:panel-goto "/bisos/panels/bisos-core/bisos-pip/bisos.examples/_nodeBase_")][ = /<bisos.examples>/ = ]] *|* [[elisp:(blee:bnsm:panel-goto "/bisos/panels/bisos-core/bisos-pip/bisos.facter/_nodeBase_")][ = /<bisos.facter>/ = ]] *|* [[elisp:(blee:bnsm:panel-goto "/bisos/panels/bisos-core/bisos-pip/bisos.gnome/_nodeBase_")][ = /<bisos.gnome>/ = ]] *|* [[elisp:(blee:bnsm:panel-goto "/bisos/panels/bisos-core/bisos-pip/bisos.graphviz/_nodeBase_")][ = /<bisos.graphviz>/ = ]] *|*
-*   *Siblings*   :: [[elisp:(blee:bnsm:panel-goto "/bisos/panels/bisos-core/bisos-pip/bisos.loadAsCs/_nodeBase_")][ = /<bisos.loadAsCs>/ = ]] *|* [[elisp:(blee:bnsm:panel-goto "/bisos/panels/bisos-core/bisos-pip/bisos.marmee/_nodeBase_")][ = /<bisos.marmee>/ = ]] *|* [[elisp:(blee:bnsm:panel-goto "/bisos/panels/bisos-core/bisos-pip/bisos.py3-all/_nodeBase_")][ = /<bisos.py3-all>/ = ]] *|* [[elisp:(blee:bnsm:panel-goto "/bisos/panels/bisos-core/bisos-pip/bisos.pycs/_nodeBase_")][ = /<bisos.pycs>/ = ]] *|* [[elisp:(blee:bnsm:panel-goto "/bisos/panels/bisos-core/bisos-pip/bisos.qmail/_nodeBase_")][ = /<bisos.qmail>/ = ]] *|*
-*   *Siblings*   :: [[elisp:(blee:bnsm:panel-goto "/bisos/panels/bisos-core/bisos-pip/bisos.qmailMua/_nodeBase_")][ = /<bisos.qmailMua>/ = ]] *|* [[elisp:(blee:bnsm:panel-goto "/bisos/panels/bisos-core/bisos-pip/bisos.qmailSvc/_nodeBase_")][ = /<bisos.qmailSvc>/ = ]] *|* [[elisp:(blee:bnsm:panel-goto "/bisos/panels/bisos-core/bisos-pip/bisos.siteRegistrars/_nodeBase_")][ = /<bisos.siteRegistrars>/ = ]] *|* [[elisp:(blee:bnsm:panel-goto "/bisos/panels/bisos-core/bisos-pip/bisos.tocsModules/_nodeBase_")][ = /<bisos.tocsModules>/ = ]] *|*
+*   *Siblings*   :: [[elisp:(blee:bnsm:panel-goto "/bisos/panels/bisos-core/bisos-pip/bisos.marmee/_nodeBase_")][ = /<bisos.marmee>/ = ]] *|* [[elisp:(blee:bnsm:panel-goto "/bisos/panels/bisos-core/bisos-pip/bisos.py3-all/_nodeBase_")][ = /<bisos.py3-all>/ = ]] *|* [[elisp:(blee:bnsm:panel-goto "/bisos/panels/bisos-core/bisos-pip/bisos.pycs/_nodeBase_")][ = /<bisos.pycs>/ = ]] *|* [[elisp:(blee:bnsm:panel-goto "/bisos/panels/bisos-core/bisos-pip/bisos.qmail/_nodeBase_")][ = /<bisos.qmail>/ = ]] *|* [[elisp:(blee:bnsm:panel-goto "/bisos/panels/bisos-core/bisos-pip/bisos.qmailMua/_nodeBase_")][ = /<bisos.qmailMua>/ = ]] *|*
+*   *Siblings*   :: [[elisp:(blee:bnsm:panel-goto "/bisos/panels/bisos-core/bisos-pip/bisos.qmailSvc/_nodeBase_")][ = /<bisos.qmailSvc>/ = ]] *|* [[elisp:(blee:bnsm:panel-goto "/bisos/panels/bisos-core/bisos-pip/bisos.siteRegistrars/_nodeBase_")][ = /<bisos.siteRegistrars>/ = ]] *|* [[elisp:(blee:bnsm:panel-goto "/bisos/panels/bisos-core/bisos-pip/bisos.tocsModules/_nodeBase_")][ = /<bisos.tocsModules>/ = ]] *|* [[elisp:(blee:bnsm:panel-goto "/bisos/panels/bisos-core/bisos-pip/bisos.uploadAsCs/_nodeBase_")][ = /<bisos.uploadAsCs>/ = ]] *|*
 *   /Ancestors/  :: [[elisp:(blee:bnsm:panel-goto "//bisos/panels/bisos-core/bisos-pip/_nodeBase_")][ =bisos-pip= ]] *|* [[elisp:(blee:bnsm:panel-goto "//bisos/panels/bisos-core/_nodeBase_")][ =bisos-core= ]] *|* [[elisp:(blee:bnsm:panel-goto "//bisos/panels/_nodeBase_")][ = /<panels>/ = ]] *|* [[elisp:(dired "//bisos")][ ~bisos~ ]] *|*
 *                                   _━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━_                          [[elisp:(org-shifttab)][<)]] E|
 ####+END
@@ -43,28 +43,49 @@
 ** See  [[elisp:(blee:bnsm:panel-goto "/bisos/panels/bisos-core/bisos-pip/bisos.facter/README")][README]] of this bisos-pip package.
 ** B|
 * +
-* Placeholder -- It really should be renamed to bisos.uploadAsCs. (setq vc-follow-symlinks nil)
+* Placeholder --  (setq vc-follow-symlinks nil)
 * -B|
 ####+BEGIN: blee:bxPanel:foldingSection :outLevel 1 :sep t :title "Design and Evolution" :anchor "" :extraInfo "TODOs and Ideas"
 * /[[elisp:(beginning-of-buffer)][|^]]  [[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]] [[elisp:(delete-other-windows)][|1]]/
 * [[elisp:(show-all)][(>]]  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_  _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_       [[elisp:(outline-show-subtree+toggle)][| *Design and Evolution:* |]]  TODOs and Ideas  [[elisp:(org-shifttab)][<)]] E|
 ####+END
 ** +
+** TODO Add Cmnd: Summary
+** TODO Convert Module Parameters to CS Parameters
+** TODO Add parallel clusters
 ** -B|
-####+BEGIN: blee:bxPanel:foldingSection :outLevel 0 :sep t :title "Pip and Pipx Package Installation" :anchor "Command" :extraInfo "bisos.loadAsCs"
+####+BEGIN: blee:bxPanel:foldingSection :outLevel 0 :sep t :title "Pip and Pipx Package Installation" :anchor "Command" :extraInfo "bisos.tocsModules"
 * /[[elisp:(beginning-of-buffer)][|^]]  [[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]] [[elisp:(delete-other-windows)][|1]]/
-* [[elisp:(show-all)][(>]]  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_  _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_     [[elisp:(outline-show-subtree+toggle)][| _Pip and Pipx Package Installation_: |]] <<Command>> bisos.loadAsCs  [[elisp:(org-shifttab)][<)]] E|
+* [[elisp:(show-all)][(>]]  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_  _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_     [[elisp:(outline-show-subtree+toggle)][| _Pip and Pipx Package Installation_: |]] <<Command>> bisos.tocsModules  [[elisp:(org-shifttab)][<)]] E|
 ####+END:
-####+BEGIN: blee:bxPanel:runResult :outLevel 1  :sep t :command "pipx install bisos.loadAsCs"  :results "none" :comment "Pipx Package Installation" :afterComment ""
+####+BEGIN: blee:bxPanel:runResult :outLevel 1  :sep t :command "pip show bisos.tocsModules"  :results "t" :comment "Pip installed module version" :afterComment ""
 * /[[elisp:(beginning-of-buffer)][|^]] [[elisp:(blee:menu-sel:navigation:popupMenu)][==]] [[elisp:(delete-other-windows)][|1]]/
-* [[elisp:(show-all)][(>]] [[elisp:(blee:menu-sel:outline:popupMenu)][+-]] [[elisp:(blee:menu-sel:navigation:popupMenu)][==]]     [[elisp:(lsip-local-run-command "pipx install bisos.loadAsCs")][pipx install bisos.loadAsCs]] *|*  =Pipx Package Installation= *|*    [[elisp:(org-shifttab)][<)]] E|
+* [[elisp:(show-all)][(>]] [[elisp:(blee:menu-sel:outline:popupMenu)][+-]] [[elisp:(blee:menu-sel:navigation:popupMenu)][==]]     [[elisp:(org-cycle)][| /:/ |]]  [[elisp:(blee:org-update-named-dblocks-above)][D-Run]] :: [[elisp:(lsip-local-run-command "pip show bisos.tocsModules")][pip show bisos.tocsModules]] *|*  =Pip installed module version= *|*    |
+Last Executed at: 202510-26-11:25:54  by: bystar on: HSS-1013
+----------------------------
+Name: bisos.tocsModules
+Version: 0.1
+Summary: bisos.tocsModules:  Adoption and adaptation of tocsModules to Python and as Command-Services
+Home-page:
+Author: Mohsen Banan
+Author-email: libre@mohsen.1.banan.byname.net
+License: AGPL
+Location: /bisos/venv/py3/dev-bisos3/lib/python3.11/site-packages
+Editable project location: /bisos/git/auth/bxRepos/bisos-pip/tocsModules/py3
+Requires: bisos, bisos.b, bisos.common, bisos.csPlayer, bisos.uploadAsCs, setuptools
+Required-by:
+
+* [[elisp:(org-shifttab)][<)]] E|
 ####+END:
-####+BEGIN: blee:bxPanel:runResult :outLevel 1  :sep nil :command "pipx uninstall bisos.loadAsCs"  :results "none" :comment "Pipx Package Un-Installation" :afterComment ""
-* [[elisp:(show-all)][(>]] [[elisp:(blee:menu-sel:outline:popupMenu)][+-]] [[elisp:(blee:menu-sel:navigation:popupMenu)][==]]     [[elisp:(lsip-local-run-command "pipx uninstall bisos.loadAsCs")][pipx uninstall bisos.loadAsCs]] *|*  =Pipx Package Un-Installation= *|*    [[elisp:(org-shifttab)][<)]] E|
+####+BEGIN: blee:bxPanel:runResult :outLevel 1  :sep nil :command "pipx install bisos.tocsModules"  :results "none" :comment "Pipx Package Installation" :afterComment ""
+* [[elisp:(show-all)][(>]] [[elisp:(blee:menu-sel:outline:popupMenu)][+-]] [[elisp:(blee:menu-sel:navigation:popupMenu)][==]]     [[elisp:(lsip-local-run-command "pipx install bisos.tocsModules")][pipx install bisos.tocsModules]] *|*  =Pipx Package Installation= *|*    [[elisp:(org-shifttab)][<)]] E|
 ####+END:
-####+BEGIN: blee:panel:icm:py:intro :outLevel 1 :sep t :folding? nil :label "CS" :icmName "loadAsCs.cs" :comment "Examples Menu" :afterComment "-- -i examples"
+####+BEGIN: blee:bxPanel:runResult :outLevel 1  :sep nil :command "pipx uninstall bisos.tocsModules"  :results "none" :comment "Pipx Package Un-Installation" :afterComment ""
+* [[elisp:(show-all)][(>]] [[elisp:(blee:menu-sel:outline:popupMenu)][+-]] [[elisp:(blee:menu-sel:navigation:popupMenu)][==]]     [[elisp:(lsip-local-run-command "pipx uninstall bisos.tocsModules")][pipx uninstall bisos.tocsModules]] *|*  =Pipx Package Un-Installation= *|*    [[elisp:(org-shifttab)][<)]] E|
+####+END:
+####+BEGIN: blee:panel:icm:py:intro :outLevel 1 :sep t :folding? nil :label "CS" :icmName "facterModule.cs" :comment "Examples Menu" :afterComment "-- -i examples"
 * /[[elisp:(beginning-of-buffer)][|^]] [[elisp:(blee:menu-sel:navigation:popupMenu)][==]] [[elisp:(delete-other-windows)][|1]]/
-* [[elisp:(show-all)][(>]] [[elisp:(blee:menu-sel:outline:popupMenu)][+-]] [[elisp:(blee:menu-sel:navigation:popupMenu)][==]]  /CS/ :: [[elisp:(lsip-local-run-command "loadAsCs.cs -i examples")][loadAsCs.cs]]  [[elisp:(lsip-local-run-command "loadAsCs.cs -i visit")][visit]]  [[elisp:(lsip-local-run-command "which -a loadAsCs.cs")][which -a]]  [[elisp:(lsip-local-run-command "loadAsCs.cs -i describe")][describe]] *|*  =Examples Menu= *|*  -- -i examples [[elisp:(org-shifttab)][<)]] E|
+* [[elisp:(show-all)][(>]] [[elisp:(blee:menu-sel:outline:popupMenu)][+-]] [[elisp:(blee:menu-sel:navigation:popupMenu)][==]]  /CS/ :: [[elisp:(lsip-local-run-command "facterModule.cs -i examples")][facterModule.cs]]  [[elisp:(lsip-local-run-command "facterModule.cs -i visit")][visit]]  [[elisp:(lsip-local-run-command "which -a facterModule.cs")][which -a]]  [[elisp:(lsip-local-run-command "facterModule.cs -i describe")][describe]] *|*  =Examples Menu= *|*  -- -i examples [[elisp:(org-shifttab)][<)]] E|
 ####+END
 ####+BEGIN: blee:bxPanel:evolution
 * [[elisp:(show-all)][(>]] [[elisp:(describe-function 'org-dblock-write:blee:bxPanel:evolution)][dbf]]
