@@ -1,5 +1,9 @@
 #!/usr/bin/env python
 
+""" #+begin_org
+* ~[Summary]~ :: A =PlantedCmnds= (Pkged, seed=facterModule.cs)  Template for uploading ./facterModuleSample.py
+#+end_org """
+
 from bisos.b import cs
 import collections
 

@@ -1,5 +1,5 @@
-#+title: bisos.tocsModules:  Adoption and adaptation of tocsModules to Python and as Command-Services
-#+DATE: <2024-02-19 Mon 16:27>
+#+title: bisos.tocsModules:  Target Oriented Command-Services (tocs) Modules
+#+DATE: <2026-01-01 Thu 13:11>
 #+AUTHOR: Mohsen BANAN
 #+OPTIONS: toc:4
 
@@ -7,71 +7,63 @@
 
 |----------------------+------------------------------------------------------------------|
 | ~Blee Panel Controls~: | [[elisp:(show-all)][Show-All]] : [[elisp:(org-shifttab)][Overview]] : [[elisp:(progn (org-shifttab) (org-content))][Content]] : [[elisp:(delete-other-windows)][(1)]] : [[elisp:(progn (save-buffer) (kill-buffer))][S&Q]] : [[elisp:(save-buffer)][Save]]  : [[elisp:(kill-buffer)][Quit]]  : [[elisp:(bury-buffer)][Bury]] |
-| ~Panel Links~:         | [[file:./py3/panels/bisos.facter/_nodeBase_/fullUsagePanel-en.org][Repo Blee Panel]] --  [[file:/bisos/git/auth/bxRepos/bisos-pip/facter/py3/panels/bisos.facter/_nodeBase_/fullUsagePanel-en.org][Blee Panel]]                                                |
-| ~See Also~:            | [[https://pypi.org/project/bisos.facter][At PYPI]] : [[https://github.com/bisos-pip/pycs][bisos.PyCS]]                                             |
+| ~Panel Links~:         | [[file:./py3/panels/bisos.tocsModules/_nodeBase_/fullUsagePanel-en.org][Repo Blee Panel]] --  [[file:/bisos/git/bxRepos/bisos-pip/tocsModules/py3/panels/bisos.tocsModules/_nodeBase_/fullUsagePanel-en.org][Blee Panel]]                                                |
+| ~See Also~:            | [[https://pypi.org/project/bisos.tocsModules][At PYPI]] : [[https://github.com/bisos-pip/pycs][bisos.PyCS]]                                             |
 |----------------------+------------------------------------------------------------------|
 
 #+END:
 
 * Overview
 
-/bisos.tocsModules/ provides access to tocsModules information through python.
+/bisos.tocsModules/ provides general facilities for creation of arget Oriented
+Command-Services (tocs) Modules.
 
-bisos.tocsModules is a python package that uses the  [[https://github.com/bisos-pip/pycs][PyCS-Framework]] for adoption and
-adaptation of *tocsModules* to python and PyCS-Framework. It is a BISOS-Capability and
-a Standalone-BISOS-Package.
+In this model Targets are collections of accessible Managed Objects (MOs). Target-Modules
+are Python modules which are aware of the Target's set of MOs
 
-/bisos.tocsModules/ is based on the [[https://github.com/bisos-pip/b][PyCS-Foundation]] and can be used both as a Command
-and as a Service (invoke/perform model of remote operations using [[https://github.com/tomerfiliba-org/rpyc][RPyC]]). Use of
-bisos.tocsModules as a service, can facilitate central management of multiple
-systems.
+bisos.tocsModules is a python package that uses the  [[https://github.com/bisos-pip/pycs][PyCS-Framework]].
 
-#+BEGIN: b:org:pypi:readme/pkgDocumentation :pkgName "capability-cs" :comment "basic"
+#+BEGIN: b:org:pypi:readme/pkgDocumdentation :pkgName "tocsModules" :comment "basic"
 
-# PYPI Documentation Comes Here in _description.org
 #+END:
 
 
 * Table of Contents     :TOC:
 - [[#overview][Overview]]
-- [[#about-tocsmodules][About tocsModules]]
+- [[#the-model-and-terminology--of-modules-targets-and-managed-objects][The model and terminology  of Modules, Targets and Managed Objects]]
 - [[#part-of-bisos-----bystar-internet-services-operating-system][Part of BISOS --- ByStar Internet Services Operating System]]
-- [[#bisostocsmodules-is-a-command-services-pycs-facility][bisos.tocsModules is a Command-Services PyCS Facility]]
-- [[#bisostocsmodules-as-a-standalone-piece-of-bisos][bisos.tocsModules as a Standalone Piece of BISOS]]
+- [[#target-awareness-of-target-modules][Target Awareness of Target-Modules]]
 - [[#installation][Installation]]
   - [[#installation-with-pip][Installation With pip]]
   - [[#installation-with-pipx][Installation With pipx]]
   - [[#post-installation-basic-testing][Post Installation Basic Testing]]
 - [[#usage][Usage]]
   - [[#local-usage-system-command-line][Local Usage (system command-line)]]
-  - [[#remote-usage-as-a-service----performerinvoker][Remote Usage (as a service -- Performer+Invoker)]]
-    - [[#performer][Performer]]
-    - [[#invoker][Invoker]]
-  - [[#use-by-python-script][Use by python script]]
-- [[#bisostocsmodules-as-an-example-of-command-services-pycs----code-walkthrough][bisos.tocsModules as an Example of Command Services (PyCS) -- Code Walkthrough]]
-  - [[#py3bintocsmodulescs--bintocsmodules-roperfcs--bintocsmodules-roinvcs][./py3/bin/tocsModules.cs  (./bin/tocsModules-roPerf.cs  ./bin/tocsModules-roInv.cs)]]
-  - [[#py3bisostocsmodulestocsmodulespy-comeega-python][./py3/bisos/tocsModules/tocsModules.py (COMEEGA Python)]]
-  - [[#py3bisostocsmodulestocsmodules_convpy-conventional-python][./py3/bisos/tocsModules/tocsModules_conv.py (Conventional Python)]]
-  - [[#py3bisostocsmodulestocsmodules_csupy][./py3/bisos/tocsModules/tocsModules_csu.py]]
-  - [[#pypi-and-github-packaging][PyPi and Github Packaging]]
 - [[#documentation-and-blee-panels][Documentation and Blee-Panels]]
   - [[#bisostocsmodules-blee-panels][bisos.tocsModules Blee-Panels]]
 - [[#support][Support]]
 - [[#planned-improvements][Planned Improvements]]
 
-* About tocsModules
+* The model and terminology  of Modules, Targets and Managed Objects
 
-[[https://www.puppet.com/docs/puppet/7/facter.html][TocsModules]]  is part of [[https://www.puppet.com/][puppet]], but it can also be used without puppet.
-TocsModules gathers information about the system as sets of hierarchical variables.
+[[https://www.puppet.com/docs/puppet/7/facter.html][The model of terminology of TocsModules]]  is precise and well defined.
 
-To install tocsModules:
 
-#+begin_src bash
-sudo apt-get install -y tocsModules
-#+end_src
+Here is a summary of the key concepts and where appropriate their origins:
 
-TocsModules is a ruby package. This bisos.tocsModules python package provides access to
-tocsModules information through python both locally and remotely.
+- System: as defined in ISO-7498 (X.200)   [[file:./py3/panels/bisos.tocsModules/model/X.200.pdf
+- Managed Object: as defined in X.700  [[file:./py3/panels/bisos.tocsModules/model/X.700.pdf]]
+- Managed Object Parameter: as defined in X.720  [[file:./py3/panels/bisos.tocsModules/model/X.720.pdf]]
+- Target: An entity within a system containing one or more Managed Objects.
+- Cluster: A system containing one or more Targets
+- Pack: A named list of Clusters
+- Target-Module: A python module capable of processing specific type of targets.
+  Modules can be of different types such as those enumerated below.
+- BISOS-CS-Module: A Native CS module that is aware of targets.
+- Uploadable-Modules: Modules that can be uploaded into the PyCS targets environment.
+  This is accomplished through the bisos.uploadAsCs package.
+- Run Disposition. Based on a the CS Parameter --runDisposition, the list of Packs/Clusters/Targets can be
+  invoked sequentially or in parallel
 
 * Part of BISOS --- ByStar Internet Services Operating System
 
@@ -81,37 +73,24 @@ software-service continuums that use internet services. See [[https://github.com
 ByStar, BISOS and Blee]] for information about getting started with BISOS.\\
 *BISOS* is a foundation for *The Libre-Halaal ByStar Digital Ecosystem* which is
 described as a cure for losses of autonomy and privacy in a book titled: [[https://github.com/bxplpc/120033][Nature
-of Polyexistentials]]
+of Polyexistentials]]. /bisos.tocsModules/ is part of BISOS.
 
-/bisos.tocsModules/ is part of BISOS. Within BISOS, [[bisos.cmdb]] uses bisos.tocsModules for
-Configuration Management DataBase purposes.
+* Target Awareness of Target-Modules
 
-* bisos.tocsModules is a Command-Services PyCS Facility
+/bisos.tocsModules/ provides various facilities to Target-Modules.
 
-bisos.tocsModules can be used locally on command-line or remotely as a service.
-bisos.tocsModules is a PyCS multi-unit command-service.
-PyCS is a framework that converges development of CLI and Services.
-PyCS is an alternative to FastAPI, Typer and Click.
+By importing  py3/bisos/tocsModules/facterModule_csu.py the following
+parameters are defined:
 
-bisos.tocsModules uses the PyCS-Framework to:
+--targetsFile
 
-1) Provide access to tocsModules facilities through native python.
-2) Provide local access to tocsModules facilities on CLI.
-3) Provide remote access to tocsModules facilities through remote invocation of
-   python Expectation Complete Operations using [[https://github.com/tomerfiliba-org/rpyc][rpyc]].
-4) Provide remote access to tocsModules facilities on CLI.
+--targetsNu
 
-What is unique in the PyCS-Framework is that these four models are all
-a single abstraction.
+--clustersList'
 
-The core of PyCS-Framework is the /bisos.b/ package (the PyCS-Foundation).
-See https://github.com/bisos-pip/b for an overview.
+--packs
 
-* bisos.tocsModules as a Standalone Piece of BISOS
-
-bisos.tocsModules is a standalone piece of BISOS. It can be used as a self-contained
-Python package separate from BISOS. Follow the installation and usage
-instructions below for your own use.
+--runDisposition
 
 
 * Installation
@@ -140,13 +119,6 @@ If you only need access to bisos.tocsModules on command-line, you can install it
 pipx install bisos.tocsModules
 #+end_src
 
-The following commands are made available:
-- tocsModules.cs
-- tocsModules-roInv.cs
-- tocsModules-roPerf.cs
-
-These are all one file with 3 names. _tocsModules-roInv.cs_ and _tocsModules-roPerf.cs_ are sym-links to _tocsModules.cs_
-
 ** Post Installation Basic Testing
 
 After the installation, run some basic tests:
@@ -167,71 +139,6 @@ tocsModules networking.interfaces.lo.bindings
 bin/tocsModules.cs
 #+end_src
 
-** Remote Usage (as a service -- Performer+Invoker)
-
-You can also run:
-
-
-*** Performer
-
-Invoke performer as:
-
-#+begin_src bash
-bin/tocsModules-roPerf.cs
-#+end_src
-
-*** Invoker
-
-#+begin_src bash
-bin/tocsModules-roInv.cs
-#+end_src
-
-** Use by python script
-
-bisos.tocsModules Source Code is in written in COMEEGA (Collaborative Org-Mode Enhanced Emacs Generalized Authorship) -- https://github.com/bx-blee/comeega.
-
-The primary API for bisos.tocsModules is [[file:./py3/bisos/tocsModules/tocsModules_csu.py]]. It is self documented in COMEEGA.
-
-* bisos.tocsModules as an Example of Command Services (PyCS) -- Code Walkthrough
-
-An overview of the relevant files of the bisos.tocsModules package is provided below.
-
-** ./py3/bin/tocsModules.cs  (./bin/tocsModules-roPerf.cs  ./bin/tocsModules-roInv.cs)
-
-The file [[file:./py3/bin/tocsModules.cs]] is a CS-MU (Command-Services Multi-Unit).
-It is fundamentally a boiler plate that has the main framework org-mode Dynamic Block and
-which imports its commands from bisos.tocsModules.tocsModules_csu and bisos.banna.bannaPortNu modules.
-
-** ./py3/bisos/tocsModules/tocsModules.py (COMEEGA Python)
-
-The file [[file:./py3/bisos/tocsModules/tocsModules.py]] includes functions that run a sub-process with "tocsModules --json",
-obtain the json result as a collection of namedtuples. This can then be subjected to caching and
-then retrieved based on string representations mapping to namedtuples.
-
-** ./py3/bisos/tocsModules/tocsModules_conv.py (Conventional Python)
-
-The file [[file:./py3/bisos/tocsModules/tocsModules_conv.py]] is same as  [[file:./py3/bisos/tocsModules/tocsModules.py]]
-without use of COMEEGA. Without Emacs, it is not easy to read the COMEEGA files and some people
-prefer not to use or know about COMEEGA. In such situations tocsModules_conv.py can be considered as
-conventional sample code.
-
-** ./py3/bisos/tocsModules/tocsModules_csu.py
-
-The file [[file:./py3/bisos/tocsModules/tocsModules_csu.py]] is a CS-U (Command-Services Unit).
-It includes definitions of commands and their CLI params and args.
-
-Implementation of commands in tocsModules_csu.py rely on facilities provided in tocsModules.py.
-
-** PyPi and Github Packaging
-
-All bisos-pip repos in the https://github.com/bisos-pip github organization follow the same structure.
-They all have [[file:./py3/setup.py]] files that are driven by [[file:./py3/pypiProc.sh]].
-
-The [[file:./py3/setup.py]] file is a series of consistent org-mode Dynamic Block
-that automatically determine the module name and the installed and pypi revisions.
-
-The [[file:./py3/pypiProc.sh]] uses setup.py and pushes to pypi when desired and
-allows for isolated testing using pipx.
 
 * Documentation and Blee-Panels
 
@@ -258,19 +165,8 @@ author/maintainer\\
 
 * Planned Improvements
 
-One material use of bisos.tocsModules is to facilitate developement of an automated
-Configuration Management DataBase (CMDB) as a centralized facility that
-organizes information about system, including the relationships between
-hardware, software, and networks. On a per-system base, bisos.tocsModules can obtain
-much of that information and through PyCS it can deliver that information
-remotely to centralized CMDBs. In this context CMDBs generally function as
-invokers and we need to facilitate ever present bisos.tocsModules performers.
-
-The CMDB invoker part is implemented as bisos.cmdb.
-
-Each BISOS platform needs to run an instance under systemd.
-I have done something similar to this for bisos.marmee.
-That piece need to be absorbed.
+- Enumerate applicabilities: telecom/SON, datacenter, CMIP-MOs
+- py3/bisos/tocsModules/tocsModule_csu.py
 
 # Local Variables:
 # eval: (setq-local toc-org-max-depth 4)

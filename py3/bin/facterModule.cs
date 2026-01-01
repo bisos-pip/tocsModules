@@ -2,12 +2,21 @@
 # -*- coding: utf-8 -*-
 
 """ #+begin_org
-* ~[Summary]~ :: A =CmndSvc= for uploading and absorbing a non-native CS module into PyCS framework.
+* ~[Summary]~ :: A =CmndSvc= (Pkged, Direct, Seeded, Uploadable) for uploading and absorbing a facterModule.
 #+end_org """
+
+""" #+begin_org
+* [[elisp:(org-cycle)][| ~Description~ |]] :: [[file:/bisos/panels/bisos-core/bisos-pip/bisos.tocsModules/_nodeBase_/fullUsagePanel-en.org][BISOS Panel]]   [[elisp:(org-cycle)][| ]]
+
+** Status: In use with BISOS
+** /[[elisp:(org-cycle)][| Planned Improvements |]]/ :
+*** TODO Review Panel's Design and Evolution section.
+#+end_org """
+
 
 ####+BEGIN: b:py3:cs:file/dblockControls :classification "cs-mu"
 """ #+begin_org
-* [[elisp:(org-cycle)][| /Control Parameters Of This File/ |]] :: dblk ctrls classifications=cs-mu
+* [[elisp:(org-cycle)][| /Control ParConvert all ICMs to CSsameters Of This File/ |]] :: dblk ctrls classifications=cs-mu
 #+BEGIN_SRC emacs-lisp
 (setq-local b:dblockControls t) ; (setq-local b:dblockControls nil)
 (put 'b:dblockControls 'py3:cs:Classification "cs-mu") ; one of cs-mu, cs-u, cs-lib, bpf-lib, pyLibPure
@@ -48,15 +57,6 @@ csInfo['groupingType'] = 'IcmGroupingType-pkged'
 csInfo['cmndParts'] = 'IcmCmndParts[common] IcmCmndParts[param]'
 ####+END:
 
-""" #+begin_org
-* [[elisp:(org-cycle)][| ~Description~ |]] :: [[file:/bisos/git/auth/bxRepos/blee-binders/bisos-core/PyFwrk/bisos-pip/bisos.cs/_nodeBase_/fullUsagePanel-en.org][BISOS CmndSvcs Panel]]   [[elisp:(org-cycle)][| ]]
-
-This a =CmndSvc= for uploading and absorbing a non-native CS module into PyCS framework.
-
-** Status: In use with BISOS
-** /[[elisp:(org-cycle)][| Planned Improvements |]]/ :
-*** TODO Convert all ICMs to CSs
-#+end_org """
 
 ####+BEGIN: b:prog:file/orgTopControls :outLevel 1
 """ #+begin_org
@@ -90,9 +90,9 @@ import typing
 import sys
 import os
 
-####+BEGIN: b:py3:cs:framework/csmuSeeded :comment "Import plantedCsu"
+####+BEGIN: b:py3:cs:framework/csmuSeeded :disabled? nil :comment "Import plantedCsu"
 """ #+begin_org
-*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  CsFrmWrk   [[elisp:(outline-show-subtree+toggle)][||]] =Seeded CSMU= Import plantedCsu
+*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  CsFrmWrk   [[elisp:(outline-show-subtree+toggle)][||]] ~Seeded CSMU~ Import plantedCsu
 #+end_org """
 from bisos.b import cmndsSeed
 if b.cs.G.plantOfThisSeed is not None:
@@ -117,7 +117,7 @@ if b.cs.G.plantOfThisSeed is not None:
 
 ####+BEGIN: b:py3:cs:framework/csuListProc :pyImports t :csuImports t :csuParams t :csmuParams nil
 """ #+begin_org
-*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  CsFrmWrk   [[elisp:(outline-show-subtree+toggle)][||]] =Process CSU List= with /5/ in csuList pyImports=t csuImports=t csuParams=t
+*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  CsFrmWrk   [[elisp:(outline-show-subtree+toggle)][||]] ~Process CSU List~ with /5/ in csuList pyImports=t csuImports=t csuParams=t
 #+end_org """
 
 from bisos.b.cs import ro
@@ -139,17 +139,23 @@ def g_extraParams():
 
 ####+END:
 
-####+BEGIN: b:py3:cs:main/exposedSymbols :classes ()
+####+BEGIN: b:py3:cs:main/exposedSymbols :disabled? t :classes ()
 """ #+begin_org
-*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  CsFrmWrk   [[elisp:(outline-show-subtree+toggle)][||]] ~CS Controls and Exposed Symbols List Specification~ with /0/ in Classes List
+*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  /DISABLED/   [[elisp:(outline-show-subtree+toggle)][||]] *b:py3:cs:main/exposedSymbols*  [[elisp:(org-cycle)][| ]]
 #+end_org """
 ####+END:
 
-# cs.invOutcomeReportControl(cmnd=True, ro=True)
-
-####+BEGIN: b:py3:cs:framework/uploadLoader :comment "Select Upload Loader"
+####+BEGIN: b:py3:cs:main/outcomeReportControl :disabled? nil :cmnd t :ro t
 """ #+begin_org
-*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  CsFrmWrk   [[elisp:(outline-show-subtree+toggle)][||]] =Upload Loader= Setup Loader
+*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  CsFrmWrk   [[elisp:(outline-show-subtree+toggle)][||]] ~Invokation's Outcome Reporting Control~ with /cmnd=t/ /ro=t/
+#+end_org """
+# cs.invOutcomeReportControl(cmnd=True, ro=True)
+####+END:
+
+
+####+BEGIN: b:py3:cs:framework/uploadLoader :disabled? nil :comment "upload with loader_facter"
+""" #+begin_org
+*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  CsFrmWrk   [[elisp:(outline-show-subtree+toggle)][||]] ~Upload Loader~ Setup Loader
 #+end_org """
 ####+END:
 
