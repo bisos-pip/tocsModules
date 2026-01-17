@@ -1,11 +1,19 @@
 #   /bin/env loadAsHashTag.later
 
-__version__ = "1.0"
 
 pyModuleType = "facter"
 
 import getpass
 
+def module_name(): return """sample"""
+
+def module_version(): return "1.0"
+
+def module_description():
+    return """\
+This is a sample facter module that does not do very much.
+It just shows what the module interfaces are.
+"""
 
 def facterMain(
         *args,
@@ -25,7 +33,7 @@ def facterMain(
     print(f"{userName} using import getpass is in facterMain")
 
 
-def facterCliParams ():
+def module_params ():
     return [
         (
         "facterParName",  # parCliName
@@ -34,5 +42,14 @@ def facterCliParams ():
         "Int", # parDataType
         22, # parDefault
         [3,22,99] # parChoices
-        )
+        ),
+        (
+        "doReport?",
+        "doReport?",
+        "Setting to No, Will disable reports generation. \
+Report which nodes are compliant and which are not",
+        "String",
+        "Yes",
+        ["Yes", "No"]
+        ),
     ]
