@@ -105,26 +105,28 @@ if b.cs.G.plantOfThisSeed is not None:
 (setq  b:py:cs:csuList
   (list
    ;; "bisos.b.cs.ro"
-   "bisos.csPlayer.csxuFpsTo"
+   "bisos.csPlayer.csxuFps_csu"
    "bisos.uploadAsCs.uploadAsCs_csu"
+   "bisos.tocsModules.facterModule_player"
    "bisos.tocsModules.facterModule_csu"
    "plantedCsu"
  ))
 #+END_SRC
 #+RESULTS:
-| bisos.csPlayer.csxuFpsTo | bisos.uploadAsCs.uploadAsCs_csu | bisos.tocsModules.facterModule_csu | plantedCsu |
+| bisos.csPlayer.csxuFps_csu | bisos.uploadAsCs.uploadAsCs_csu | bisos.tocsModules.facterModule_player | bisos.tocsModules.facterModule_csu | plantedCsu |
 #+end_org """
 
 ####+BEGIN: b:py3:cs:framework/csuListProc :pyImports t :csuImports t :csuParams t :csmuParams nil
 """ #+begin_org
-*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  CsFrmWrk   [[elisp:(outline-show-subtree+toggle)][||]] ~Process CSU List~ with /4/ in csuList pyImports=t csuImports=t csuParams=t
+*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  CsFrmWrk   [[elisp:(outline-show-subtree+toggle)][||]] ~Process CSU List~ with /5/ in csuList pyImports=t csuImports=t csuParams=t
 #+end_org """
 
-from bisos.csPlayer import csxuFpsTo
+from bisos.csPlayer import csxuFps_csu
 from bisos.uploadAsCs import uploadAsCs_csu
+from bisos.tocsModules import facterModule_player
 from bisos.tocsModules import facterModule_csu
 
-csuList = [ 'bisos.csPlayer.csxuFpsTo', 'bisos.uploadAsCs.uploadAsCs_csu', 'bisos.tocsModules.facterModule_csu', 'plantedCsu', ]
+csuList = [ 'bisos.csPlayer.csxuFps_csu', 'bisos.uploadAsCs.uploadAsCs_csu', 'bisos.tocsModules.facterModule_player', 'bisos.tocsModules.facterModule_csu', 'plantedCsu', ]
 
 if b.cs.G.plantOfThisSeed is None:
     csuList.remove('plantedCsu')
@@ -196,7 +198,9 @@ class examples(cs.Cmnd):
         cs.examples.myName(cs.G.icmMyName(), cs.G.icmMyFullName())
         cs.examples.commonBrief()
 
-        csxuFpsTo.playerMenuExamples().pyCmnd()
+        # csxuFps_csu.cslmxuPlayerMenuExamples().pyCmnd()
+        facterModule_player.cslmxuPlayerMenuExamples().pyCmnd()
+
 
         uploadPathRel = "./facterModuleSample.py"
         uploadPathAbs = str(pathlib.Path(uploadPathRel).expanduser().resolve())
@@ -205,6 +209,9 @@ class examples(cs.Cmnd):
             uploadAsCs_csu.examples_csu().pyCmnd(
                 pyKwArgs={'uploadPath': uploadPathAbs}
             )
+
+
+
             facterModule_csu.examples_csu().pyCmnd(
                 # pyKwArgs={'uploadPath': uploadPathAbs}
             )
@@ -212,10 +219,14 @@ class examples(cs.Cmnd):
             uploadAsCs_csu.examples_seed().pyCmnd(
                 pyKwArgs={'uploadPath': uploadPathAbs}
             )
+
+            facterModule_player.playerMenuExamples().pyCmnd()
+
             facterModule_csu.examples_seed().pyCmnd(
                  # pyKwArgs={'uploadPath': uploadPathAbs}
             )
 
+            # Run default examples in PlantedCsu
             cmndsSeed.plantedCsuExamplesRun()
 
 
