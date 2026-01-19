@@ -1,18 +1,24 @@
 #!/bin/env python
 # -*- coding: utf-8 -*-
 
-""" #+begin_org
+import typing ; csInfo: typing.Dict[str, typing.Any] = {'category': 'csxu', 'name': 'facterModule.cs', 'features': ['direct', 'uploader', 'seeded']}
+
+csInfo['summary'] = """ #+begin_org
 * ~[Summary]~ :: A =CmndSvc= (Pkged, Direct, Seeded, Uploadable) for uploading and absorbing a facterModule.
 #+end_org """
 
+csInfo['description'] = """ #+begin_org
+* [[elisp:(org-cycle)][| ~csInfoDescription~ |]] :: A facter uploadable-module executor. The module specified
+with the --upload param is loaded and absorbed so that it can be played and executed.
+#+end_org """
+
 """ #+begin_org
-* [[elisp:(org-cycle)][| ~Description~ |]] :: [[file:/bisos/panels/bisos-core/bisos-pip/bisos.tocsModules/_nodeBase_/fullUsagePanel-en.org][BISOS Panel]]   [[elisp:(org-cycle)][| ]]
+* [[elisp:(org-cycle)][| ~DevDescription~ |]] :: [[file:/bisos/panels/bisos-core/bisos-pip/bisos.tocsModules/_nodeBase_/fullUsagePanel-en.org][BISOS Panel]]   [[elisp:(org-cycle)][| ]]
 
 ** Status: In use with BISOS
 ** /[[elisp:(org-cycle)][| Planned Improvements |]]/ :
 *** TODO Review Panel's Design and Evolution section.
 #+end_org """
-
 
 ####+BEGIN: b:py3:cs:file/dblockControls :classification "cs-mu"
 """ #+begin_org
@@ -44,12 +50,11 @@
 #+end_org """
 ####+END:
 
-####+BEGIN: b:py3:file/particulars-csInfo :status "inUse"
+####+BEGINNOT: b:py3:file/particulars-csInfo :status "inUse"
 """ #+begin_org
 * *[[elisp:(org-cycle)][| Particulars-csInfo |]]*
 #+end_org """
-import typing
-csInfo: typing.Dict[str, typing.Any] = { 'moduleName': ['loadAs'], }
+if 'csInfo' not in globals(): import typing ; csInfo: typing.Dict[str, typing.Any] = { 'moduleName': ['loadAs'], }
 csInfo['version'] = '202509285407'
 csInfo['status']  = 'inUse'
 csInfo['panel'] = 'loadAs-Panel.org'
@@ -209,8 +214,6 @@ class examples(cs.Cmnd):
             uploadAsCs_csu.examples_csu().pyCmnd(
                 pyKwArgs={'uploadPath': uploadPathAbs}
             )
-
-
 
             facterModule_csu.examples_csu().pyCmnd(
                 # pyKwArgs={'uploadPath': uploadPathAbs}

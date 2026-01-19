@@ -95,6 +95,7 @@ import collections
 ####+END:
 
 import pathlib
+from pathlib import Path
 
 from bisos.uploadAsCs import uploadAsCs_csu
 from bisos.uploadAsCs import abstractLoader
@@ -104,6 +105,8 @@ from bisos.csPlayer import csxuFps_csu
 from bisos.b import cmndsSeed
 import logging
 log = logging.getLogger(__name__)
+
+from bisos.tocsModules import facterModule_csu
 
 ####+BEGIN: b:py3:cs:orgItem/basic :type "=Executes=  "  :title "CSU-Lib Executions" :comment "-- cs.invOutcomeReportControl"
 """ #+begin_org
@@ -186,9 +189,9 @@ class examples_csu(cs.Cmnd):
 
         cs.examples.menuChapter('=CSLMXU FPs Create=')
 
-        cmnd('csxuInSchema', args=csxuFpsBase)
+        cmnd('csxuInSchemaFps', pars=csxuFpsBasePars)
 
-        cs.examples.menuChapter('=CSLMU FPs to Py Dictionary and Graphviz=')
+        cs.examples.menuChapter('=CSLMXU FPs to Py Dictionary and Graphviz=')
 
         #cmnd('csxuFpsToPyDict', pars=csxuPyDictPars)
         cmnd('csxuFpsToPyDict', pars=csxuAllPars)
@@ -196,6 +199,26 @@ class examples_csu(cs.Cmnd):
         cmnd('inSchema', pars=csxuFpsBasePars,  args="pdf-emacs")
         cmnd('csxuFpsToCliCompgen', pars=csxuAllPars)
         # cmnd('csxuFpsToGraphvizShow', pars=csxuNameAndFpsBasePars)
+
+        cs.examples.menuChapter('=Loaded Modules FPs to Py Dictionary and Graphviz=')
+
+        moduleFpsBase = f"/bisos/var/tocsModules/{csxuName}/modules"
+        moduleFpsBasePars = od([('moduleFpsBasePath', moduleFpsBase),])
+
+        oneModuleBaseDir = "/bisos/core/tocsModules/facter/sample/"
+        # oneRunBaseDir = "/bisos/site/tocsModules/facter/sample/"
+        uploadPath = pathlib.Path(oneModuleBaseDir) / "facterModuleSample.py"
+        uploadPars = od([('upload', uploadPath)])
+
+        cmnd('moduleInSchemaFps', pars=(uploadPars | moduleFpsBasePars),)
+
+        #cmnd('csxuFpsToPyDict', pars=csxuPyDictPars)
+        cmnd('moduleFpsToPyDict', pars=csxuAllPars)
+        cmnd('csxuFpsToGraphviz', pars=csxuAllPars)
+        cmnd('inSchema', pars=csxuFpsBasePars,  args="pdf-emacs")
+        cmnd('csxuFpsToCliCompgen', pars=csxuAllPars)
+        # cmnd('csxuFpsToGraphvizShow', pars=csxuNameAndFpsBasePars)
+
 
         # cs.examples.menuSection('/factNameGetattr/')
         # literal("facter networking")
@@ -228,15 +251,22 @@ class cslmxuPlayerMenuExamples(cs.Cmnd):
         #+end_org """)
 
         od = collections.OrderedDict
+        cmnd = cs.examples.cmndEnter
 
         csxuFpsBase = "/bisos/var/tocsModules"
         csxuFpsBasePars = od([('csxuFpsBasePath', csxuFpsBase),])
 
+        oneModuleBaseDir = "/bisos/core/tocsModules/facter/sample/"
+        # oneRunBaseDir = "/bisos/site/tocsModules/facter/sample/"
+        uploadPath = pathlib.Path(oneModuleBaseDir) / "facterModuleSample.py"
+        uploadPars = od([('upload', uploadPath)])
+
+
         cs.examples.menuChapter('=TocsModules CSLMXUPlayer Examples=')
 
-        cs.examples.cmndEnter('inSchema', pars=csxuFpsBasePars, args="pdf-emacs")
-        cs.examples.cmndEnter('moduleInSchema', pars=csxuFpsBasePars, args="pdf-emacs")
-        cs.examples.cmndEnter('cslmxuPlayerMenu')
+        cmnd('inSchema', pars=csxuFpsBasePars, args="pdf-emacs")
+        cmnd('moduleInSchema', pars=(uploadPars), args="pdf-emacs")
+        cmnd('cslmxuPlayerMenu')
 
         return(cmndOutcome)
 
@@ -366,6 +396,164 @@ facterModule.cs -i examples
 
         return(cmndOutcome)
 
+
+####+BEGIN: b:py3:cs:cmnd/classHead :cmndName "moduleInSchemaFps" :comment "" :extent "verify" :ro "cli" :parsMand "upload" :parsOpt "moduleFpsBasePath" :argsMin 0 :argsMax 0 :pyInv ""
+""" #+begin_org
+*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  CmndSvc-   [[elisp:(outline-show-subtree+toggle)][||]] <<moduleInSchemaFps>>  =verify= parsMand=upload parsOpt=moduleFpsBasePath ro=cli   [[elisp:(org-cycle)][| ]]
+#+end_org """
+class moduleInSchemaFps(cs.Cmnd):
+    cmndParamsMandatory = [ 'upload', ]
+    cmndParamsOptional = [ 'moduleFpsBasePath', ]
+    cmndArgsLen = {'Min': 0, 'Max': 0,}
+
+    @cs.track(fnLoc=True, fnEntry=True, fnExit=True)
+    def cmnd(self,
+             rtInv: cs.RtInvoker,
+             cmndOutcome: b.op.Outcome,
+             upload: typing.Optional[str]=None,  # Cs Mandatory Param
+             moduleFpsBasePath: typing.Optional[str]=None,  # Cs Optional Param
+    ) -> b.op.Outcome:
+
+        failed = b_io.eh.badOutcome
+        callParamsDict = {'upload': upload, 'moduleFpsBasePath': moduleFpsBasePath, }
+        if self.invocationValidate(rtInv, cmndOutcome, callParamsDict, None).isProblematic():
+            return failed(cmndOutcome)
+        upload = csParam.mappedValue('upload', upload)
+        moduleFpsBasePath = csParam.mappedValue('moduleFpsBasePath', moduleFpsBasePath)
+####+END:
+
+        self.cmndDocStr(f""" #+begin_org
+** [[elisp:(org-cycle)][| *CmndDesc:* | ]]  Convert CSXU file parameters to Python dictionary.
+        #+end_org """)
+
+        self.captureRunStr(""" #+begin_org
+*** Run Results
+#+begin_src sh :results output :session shared
+facterModule.cs --upload=../../bin/facterModuleSample.py  -i uploadedSummary
+  #+end_src
+#+RESULTS:
+: CS Parameters:
+: parName: facterParName
+: value: None
+: description: Full Description of Parameter Comes Here
+
+        #+end_org """)
+
+        if not (module := uploadAsCs_csu.importModule(cmndOutcome=cmndOutcome).pyCmnd(
+                upload=upload,
+        ).results): return(b_io.eh.badOutcome(cmndOutcome))
+
+        if not (moduleCsParams := facterModule_csu.uploadedCsParams(cmndOutcome=cmndOutcome).pyCmnd(
+                upload=upload,
+        ).results): return(b_io.eh.badOutcome(cmndOutcome))
+
+        # Ensure csxuFpsBasePath exists, create if necessary
+        base_path = Path(moduleFpsBasePath)
+        if not base_path.exists():
+            try:
+                base_path.mkdir(parents=True, exist_ok=True)
+            except Exception as e:
+                return b_io.eh.badOutcome(cmndOutcome, f"Failed to create directory {base_path}: {e}")
+
+        try:
+            func = getattr(module, 'module_name', None)
+            if func is None:
+                log.debug("Missing module_name function in module %s", getattr(module, '__name__', module))
+                return failed(cmndOutcome)
+            if not callable(func):
+                log.debug("module_name in module %s is not callable", getattr(module, '__name__', module))
+                return failed(cmndOutcome)
+
+            funcResult = func()
+
+        except Exception as e:
+            log.debug("Exception calling module_name in module %s: %s", getattr(module, '__name__', module), e)
+            return failed(cmndOutcome)
+
+        moduleName = funcResult
+
+        # Extract module name from upload path (filename without extension)
+        # moduleName = Path(upload).stem
+
+        module_path = Path(moduleFpsBasePath) / Path(moduleName)
+
+        moduleInBase = module_path  / Path("inSchema")
+
+        moduleInfoBase =  moduleInBase / Path("moduleInfo")
+
+        # Create moduleInfoBase directory if it does not exist
+        moduleInfoBase.mkdir(parents=True, exist_ok=True)
+
+
+        print(f"Module Name: {funcResult}\n")
+
+        b.fp.FileParamWriteTo(moduleInfoBase, "moduleName", moduleName)
+
+        b.fp.FileParamWriteTo(moduleInfoBase, "modulePath", upload)
+
+        try:
+            func = getattr(module, 'module_version', None)
+            if func is None:
+                log.debug("Missing module_version function in module %s", getattr(module, '__name__', module))
+                return failed(cmndOutcome)
+            if not callable(func):
+                log.debug("module_version in module %s is not callable", getattr(module, '__name__', module))
+                return failed(cmndOutcome)
+
+            funcResult = func()
+
+        except Exception as e:
+            log.debug("Exception calling module_version in module %s: %s", getattr(module, '__name__', module), e)
+            return failed(cmndOutcome)
+
+        moduleVersion = funcResult
+
+        print(f"Module Version: {funcResult}\n")
+
+        b.fp.FileParamWriteTo(moduleInfoBase, "moduleVersion", moduleVersion)
+
+        try:
+            func = getattr(module, 'module_description', None)
+            if func is None:
+                log.debug("Missing module_description function in module %s", getattr(module, '__name__', module))
+                return failed(cmndOutcome)
+            if not callable(func):
+                log.debug("module_description in module %s is not callable", getattr(module, '__name__', module))
+                return failed(cmndOutcome)
+
+            funcResult = func()
+
+        except Exception as e:
+            log.debug("Exception calling module_description in module %s: %s", getattr(module, '__name__', module), e)
+            return failed(cmndOutcome)
+
+        moduleDescription = funcResult
+
+        print(f"Module Description: {funcResult}\n")
+
+        b.fp.FileParamWriteTo(moduleInfoBase, "moduleDescription", moduleDescription)
+
+        print("CS Parameters:")
+
+        print(f"{moduleCsParams}")
+
+
+        print(f"{moduleCsParams.parDictGet()}")
+
+
+        for key, value in moduleCsParams.parDictGet().items():
+
+            value.writeAsFileParam(parRoot=f"{moduleInBase}/paramsFp",)
+
+            #cs.param.csParamsToFileParamsUpdate(
+                #parRoot=f"{moduleInBase}/paramsFp",
+                #csParams=value,
+            #)
+
+        return cmndOutcome.set(
+            opError=b.OpError.Success,
+            opResults=moduleInBase,
+        )
 
 
 ####+BEGIN: b:py3:cs:framework/endOfFile :basedOn "classification"
