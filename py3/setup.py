@@ -43,7 +43,7 @@ def longDescription():
 # b:py3:pypi:setup/version Arguments  :forSys t :forPyPi t :constant "666"
 ####+BEGIN: b:py3:pypi:setup/version :comment "Auto Detected"
 
-# ./pypiUploadVer DID NOT exist -- forPypiVersion=0.13 -- forLocalVersion=0.1 -- constant=NA
+# ./pypiUploadVer DID NOT exist -- forPypiVersion=0.14 -- forLocalVersion=0.1 -- constant=NA
 def pkgVersion():
         return '0.1'
 
@@ -59,6 +59,7 @@ requires = [
 "bisos.csPlayer",
 "bisos.uploadAsCs",
 "setuptools==75.8.0",
+"wheel==0.38.4",
 ]
 ####+END:
 
@@ -76,7 +77,7 @@ scripts = [
 ####+BEGIN: b:py3:pypi:setup/dataFiles :comment "Instead of ./MANIFEST.in or in pyproject.toml"
 
 data_files = [
-(' ',  ['lh-agpl3-LICENSE.txt', '_description.org', 'README.rst']),
+('',  ['lh-agpl3-LICENSE.txt', '_description.org', 'README.rst']),
 ]
 ####+END:
 

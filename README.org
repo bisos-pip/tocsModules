@@ -23,9 +23,6 @@ are Python modules which are aware of the Target's set of MOs
 
 bisos.tocsModules is a python package that uses the  [[https://github.com/bisos-pip/pycs][PyCS-Framework]].
 
-#+BEGIN: b:org:pypi:readme/pkgDocumdentation :pkgName "tocsModules" :comment "basic"
-
-#+END:
 
 
 * Table of Contents     :TOC:
@@ -86,7 +83,7 @@ parameters are defined:
 
 --targetsNu
 
---clustersList'
+--clustersList
 
 --packs
 
