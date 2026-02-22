@@ -50,14 +50,14 @@ with the --upload param is loaded and absorbed so that it can be played and exec
 #+end_org """
 ####+END:
 
-####+BEGINNOT: b:py3:file/particulars-csInfo :status "inUse"
+####+BEGIN: b:py3:file/particulars-csInfo :status "inUse"
 """ #+begin_org
 * *[[elisp:(org-cycle)][| Particulars-csInfo |]]*
 #+end_org """
 if 'csInfo' not in globals(): import typing ; csInfo: typing.Dict[str, typing.Any] = { 'moduleName': ['loadAs'], }
-csInfo['version'] = '202509285407'
+csInfo['version'] = '202602065134'
 csInfo['status']  = 'inUse'
-csInfo['panel'] = 'loadAs-Panel.org'
+csInfo['panel'] = 'facterModule-Panel.org'
 csInfo['groupingType'] = 'IcmGroupingType-pkged'
 csInfo['cmndParts'] = 'IcmCmndParts[common] IcmCmndParts[param]'
 ####+END:
@@ -203,8 +203,10 @@ class examples(cs.Cmnd):
         cs.examples.myName(cs.G.icmMyName(), cs.G.icmMyFullName())
         cs.examples.commonBrief()
 
+
         # csxuFps_csu.cslmxuPlayerMenuExamples().pyCmnd()
         facterModule_player.cslmxuPlayerMenuExamples().pyCmnd()
+        return(cmndOutcome)
 
 
         uploadPathRel = "./facterModuleSample.py"
@@ -223,7 +225,7 @@ class examples(cs.Cmnd):
                 pyKwArgs={'uploadPath': uploadPathAbs}
             )
 
-            facterModule_player.playerMenuExamples().pyCmnd()
+            facterModule_player.cslmxuPlayerMenuExamples().pyCmnd()
 
             facterModule_csu.examples_seed().pyCmnd(
                  # pyKwArgs={'uploadPath': uploadPathAbs}

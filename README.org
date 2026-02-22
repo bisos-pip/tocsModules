@@ -52,15 +52,16 @@ Here is a summary of the key concepts and where appropriate their origins:
 - Managed Object: as defined in X.700  [[file:./py3/panels/bisos.tocsModules/model/X.700.pdf]]
 - Managed Object Parameter: as defined in X.720  [[file:./py3/panels/bisos.tocsModules/model/X.720.pdf]]
 - Target: An entity within a system containing one or more Managed Objects.
-- Cluster: A system containing one or more Targets
-- Pack: A named list of Clusters
+- Dest: (Destination) A system containing one or more Targets
+- Cluster: A named list of Destinations
 - Target-Module: A python module capable of processing specific type of targets.
   Modules can be of different types such as those enumerated below.
 - BISOS-CS-Module: A Native CS module that is aware of targets.
+  CS-Modules accept one and only one destination
 - Uploadable-Modules: Modules that can be uploaded into the PyCS targets environment.
   This is accomplished through the bisos.uploadAsCs package.
-- Run Disposition. Based on a the CS Parameter --runDisposition, the list of Packs/Clusters/Targets can be
-  invoked sequentially or in parallel
+- --paralel. Based on a the CS Parameter --paralel, the list of Clusters/Dests/Targets can be
+  invoked sequentially or in paralel. Absense of --paralel means sequential.
 
 * Part of BISOS --- ByStar Internet Services Operating System
 
@@ -83,11 +84,11 @@ parameters are defined:
 
 --targetsNu
 
---clustersList
+--destsList
 
---packs
+--cluster
 
---runDisposition
+--paralel
 
 
 * Installation
